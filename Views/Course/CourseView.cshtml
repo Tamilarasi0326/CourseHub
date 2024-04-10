@@ -1,0 +1,62 @@
+﻿@model List<CourseHub.Models.Course>
+@{
+    ViewBag.Title = "CourseView";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Course View</h2>
+
+
+
+
+<div class="container">
+    <h1>List of Courses Available</h1>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4">
+                <img src="~/Content/Images/@item.CoursePic" alt="@item.CourseName" width="150" height="150" />
+                <span style="display:block" class="h5 text-bg-dark">@item.CourseName</span>
+                <span style="display:block" class="h3 text-dark">@item.CourseAuthor</span>
+                <span style="display:block" class="h3 text-dark"><b>₹@item.CoursePrice </b></span>
+                <a class="btn btn-info" onclick="return confirm('Description for @item.CourseName: @item.Description')">More Info &ensp; </a>
+
+                <a href="@Url.Action("AddToCart", "Cart", new { @CourseId = item.CourseId})" class="btn btn-danger">Add to Cart</a>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    body {
+        background-image: url('../image/bg03.gif');
+        background-repeat: no-repeat;
+        background-size: 100% 125%;
+    }
+</style>
+
+
+
+
+@*
+    <div class="card" style="width: 18rem;">
+        @foreach (var item in Model)
+        {
+            <img class="card-img-top" src="~/Content/Images/@item.CoursePic" alt="@item.CourseName" width="200" height="200" />
+
+            <div class="card-body">
+
+                <span style="display:block" class="h4 text-bg-dark">@item.CourseName</span>
+                <span style="display:block" class="h3 text-bg-light">@item.CourseAuthor</span>
+                <span style="display:block" class="h4 text-bg-light"><b>₹@item.CoursePrice </b></span>
+            </div>
+            <a class="btn btn-info" onclick="return confirm('Description for @item.CourseName: @item.Description')">More Info</a>
+            <div>
+
+            </div>
+            <a href="@Url.Action("AddToCart", "Cart", new { @CourseId = item.CourseId})" class="btn btn-danger">Add to Cart</a>
+        }
+
+    </div>
+
+*@

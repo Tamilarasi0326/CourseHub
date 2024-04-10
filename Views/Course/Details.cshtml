@@ -1,0 +1,90 @@
+﻿@model CourseHub.Models.Course
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Course Id :")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CourseId)
+        </dd>
+          
+        <dt>@Html.DisplayName("Course Name:")</dt>
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>@Html.DisplayName("Course Description:")</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>@Html.DisplayName("Course Price :")</dt>
+        <dd>
+            @Html.DisplayFor(model => model.CoursePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Course Author:")
+        </dt>
+        <dd>@Html.DisplayFor(model => model.CourseAuthor)</dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+@*<h2>Detail for @Model.CourseName</h2>
+
+    @using (Html.BeginForm("Details", "Course", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(Model => Model.CourseId)
+    <table class="table">
+        <tr>
+            <td>@Html.DisplayFor(model => model.CourseName)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.DisplayFor(Model => Model.CoursePrice)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.DisplayFor(Model => Model.Description)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.DisplayFor(Model => Model.CourseAuthor)</td>
+        </tr>
+
+        <tr>
+            <td>
+                <img src="~/Content/Images/@Model.CoursePic" alt="@Model.CourseName" width="100" height="100" />
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <input type="submit" name="Details" value="Course Details" class="btn btn-primary text-center" />
+            </td>
+        </tr>
+
+    </table>
+    }
+*@
+
+
+
+
+
+
+

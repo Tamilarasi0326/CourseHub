@@ -1,0 +1,51 @@
+﻿@model List<CourseHub.Models.Course>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+}
+
+<h2>List of All Courses</h2>
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>Course Id</th>
+        <th>Course Name</th>
+        <th>Course description</th>
+        <th>Course Price</th>
+        <th>Course Author</th>
+        <th>Course Image</th>
+        <th>Operations</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CourseId</td>
+            <td>@item.CourseName</td>
+            <td>@item.Description</td>
+            <td>@item.CoursePrice</td>
+            <td>@item.CourseAuthor</td>
+            <td>
+                <img src="~/Content/Images/@item.CoursePic" alt="@item.CourseName" width="100" height="100" />
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Course", new { @id = item.CourseId})" class="btn btn-warning">Edit</a>
+                <a href="@Url.Action("Delete", "Course", new { @id = item.CourseId})" class = "btn btn-danger" onclick="return confirm('Are you sure you want to delete @item.CourseName ?')">Delete</a>
+                <a href="@Url.Action("Details", "Course", new { @id = item.CourseId})" class="btn btn-primary">Details</a>
+            </td>
+
+        </tr>
+    }
+</table>
+
+<a href="@Url.Action("Create", "Course")" class="btn btn-primary">Add a New Course</a> 
+
+<style>
+    body {
+        background-image: url('../image/bg03.gif');
+        background-repeat: no-repeat;
+        background-size: 100% 125%;
+    }
+</style>
+
+
+

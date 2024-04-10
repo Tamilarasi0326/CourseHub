@@ -1,0 +1,73 @@
+﻿@model IEnumerable<CourseHub.Models.UserInfo>
+@{
+    ViewBag.Title = "UserView";
+}
+
+<h2>UserView</h2>
+
+<style>
+
+    /* Basic styling */
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+    }
+
+    .userinfoes {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .userinfoes h3 {
+            margin: 10px 0;
+        }
+
+        .userinfoes p {
+            color: #555;
+        }
+
+</style>
+
+<body>
+
+
+    @foreach (var item in Model)
+
+    {
+
+        <div class="userinfoes">
+
+
+            <h3>Student Details</h3>
+
+            <p>First Name:@item.FirstName<br>Last Name:@item.LastName<br>Gender:@item.Gender<br />Date of birth:@item.DateOfBirth<br />Email:@item.Email<br />Phone number:@item.PhoneNumber<br />Address:@item.Address</p>
+
+            <td>
+                
+                @Html.ActionLink("Edit", "Edit", new { id = item.UsersId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UsersId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UsersId })
+            </td>
+
+
+        </div>
+
+
+    }
+
+</body>
+
+<style>
+    body {
+        background-image: url('../image/bg03.gif');
+        background-repeat: no-repeat;
+        background-size: 100% 125%;
+    }
+</style>
+

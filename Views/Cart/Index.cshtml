@@ -1,0 +1,124 @@
+﻿@using CourseHub.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Your Cart</h2>
+
+
+
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Course Image</th>
+        <th>Course Name</th>
+        <th>Course Price</th>
+        <th>Course Description</th>
+        <th>Course Author</th>
+        <th>Operations</th>
+    </tr>
+    @foreach (var item in (List<CourseItem>)Session["cart"])
+    {
+        <tr>
+            <td>
+                <img src="~/Content/Images/@item.course.CoursePic" alt="@item.course.CourseName" width="100" height="100" />
+            </td>
+            <td>@item.course.CourseName</td>
+            <td>₹@item.course.CoursePrice</td>
+            <td>@item.course.Description</td>
+            <td>@item.course.CourseAuthor</td>
+            <td><a href="@Url.Action("RemoveFromCart", "Cart", new { @CourseId = item.course.CourseId })" class="btn btn-danger">Remove From Cart</a></td>
+
+        </tr>
+    }
+    <tr>
+        <td colspan="5"><h2 class="text-center">Total Amount to be Paid:</h2></td>
+        <td>
+            @{
+                List<CourseItem> cart = (List<CourseItem>)Session["cart"];
+                var total = (from data in cart select data.course.CoursePrice).Sum();
+            }
+            <h2>₹@total</h2>
+
+    <tr style="text-align: right">
+        <td colspan="5">
+            @*<input type="submit" value="Save" name="Save" class="btn btn-primary" id="SaveOrder" />*@
+            @*@Html.ActionLink("Paynow", "Checkout", "Cart", new { id = item }, new { @class = "btn btn-primary" })*@
+            @using (Html.BeginForm("AddOrder", "Cart", FormMethod.Post))
+            {
+                <input type="submit" value="Pay" name="Pay" class="btn btn-primary" id="PayOrder" />
+            }
+
+            @*<a href="@Url.Action("PaidView", "Cart")" class="btn btn-danger">Pay</a>*@
+
+        </td>
+    </tr>
+
+    </td>
+
+    </tr>
+</table>
+
+@Html.ActionLink("Continue Enrolling", "CourseView", "Course")
+
+<style>
+    body {
+        background-image: url('../image/bg03.gif');
+        background-repeat: no-repeat;
+        background-size: 100% 125%;
+    }
+</style>
+
+
+
+
+
+@*@using (Html.BeginForm( "AddOrder", "Cart", FormMethod.Post))
+    {
+
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>Course Image</th>
+                <th>Course Name</th>
+                <th>Course Price</th>
+                <th>Course Description</th>
+                <th>Course Author</th>
+                <th>Operations</th>
+            </tr>
+            @foreach (var item in (List<CourseItem>)Session["cart"])
+            {
+                <tr>
+                    <td>
+                        <img src="~/Content/Images/@item.course.CoursePic" alt="@item.course.CourseName" width="100" height="100" />
+                    </td>
+                    <td>@item.course.CourseName</td>
+                    <td>₹@item.course.CoursePrice</td>
+                    <td>@item.course.Description</td>
+                    <td>@item.course.CourseAuthor</td>
+                    <td><a href="@Url.Action("RemoveFromCart", "Cart", new {@CourseId = item.course.CourseId})" class="btn btn-danger">Remove From Cart</a></td>
+                </tr>
+            }
+            <tr>
+                <td colspan="5"><h2 class="text-center">Total Amount to be Paid:</h2></td>
+                <td>
+                    @{
+                        List<CourseItem> cart = (List<CourseItem>)Session["cart"];
+                        var total = (from data in cart select data.course.CoursePrice).Sum();
+                    }
+                    <h2>₹@total</h2>
+
+            <tr style="text-align: right">
+                <td colspan="5">
+                    <input type="submit" value="Save" name="Save" class="btn btn-primary" id="SaveOrder" />
+                </td>
+            </tr>
+
+            </td>
+
+            </tr>
+        </table>
+
+
+
+    }*@

@@ -1,0 +1,43 @@
+﻿@model CourseHub.Models.Course
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add a new Course</h2>
+
+@using (Html.BeginForm("Create", "Course", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table class="table">
+        <tr>
+            <td>Enter Course Name:</td>
+            <td>@Html.EditorFor(Model => Model.CourseName, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+
+        <tr>
+            <td>Enter Course Price:</td>
+            <td>@Html.EditorFor(Model => Model.CoursePrice, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+
+        <tr>
+            <td>Enter Course Description:</td>
+            <td>@Html.EditorFor(Model => Model.Description, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+
+        <tr>
+            <td>Enter Course Author:</td>
+            <td>@Html.EditorFor(Model => Model.CourseAuthor, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+
+        <tr>
+            <td>Choose a Course Image:</td>
+            <td><input type="file" name="postedFile" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="submit" value="Add Course" class="btn btn-success text-center" />
+            </td>
+        </tr>
+    </table>
+}
+
+

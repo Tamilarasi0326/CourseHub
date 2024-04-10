@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c3151dcbc83443b986d7de2affff9699" Name="Diagram1">
+        <EntityTypeShape EntityType="CmsDBModel.AdminRegister" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CmsDBModel.Course" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CmsDBModel.UserInfo" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CmsDBModel.UserRegister" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CmsDBModel.Orders" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CmsDBModel.Pay" Width="1.5" PointX="5" PointY="0.75" />
+        <AssociationConnector Association="CmsDBModel.FK__Pay__CourseId__59063A47" />
+        <AssociationConnector Association="CmsDBModel.FK__Pay__UserId__59FA5E80" />
+        <EntityTypeShape EntityType="CmsDBModel.OrderDetails" Width="1.5" PointX="7.625" PointY="2" />
+        <AssociationConnector Association="CmsDBModel.FK__OrderDeta__cours__44FF419A" />
+        <AssociationConnector Association="CmsDBModel.FK__OrderDeta__order__440B1D61" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
